@@ -33,15 +33,15 @@
             <tbody>
                 <?php foreach ($users as $user) { ?>
                 <tr>
-                    <td><?= $user->id; ?></td>
-                    <td><?= $user->name; ?></td>
-                    <td><?= $user->username; ?></td>
-                    <td><?= $user->email; ?></td>
-                    <td><?= $user->phone; ?></td>
-                    <td><?= $user->website; ?></td>
-                    <td><?= $user->extension; ?></td>
+                    <td><?= $user['id']; ?></td>
+                    <td><?= $user['name']; ?></td>
+                    <td><?= $user['username']; ?></td>
+                    <td><?= $user['email']; ?></td>
+                    <td><?= $user['phone']; ?></td>
+                    <td><?= $user['website']; ?></td>
+                    <td><?= $user['extension']; ?></td>
                     <td>
-                        <a href="">View</a>
+                        <a href="view.php?id=<?=$user['id']?>">View</a>
                         <a href="">Edit</a>
                         <a href="">Delete</a>
                     </td>
