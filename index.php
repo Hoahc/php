@@ -1,5 +1,5 @@
 <?php
-    require 'users.php';
+    require 'users/users.php';
     $users = getUser();
 ?>
 
@@ -15,12 +15,15 @@
 <body>
     
 <div class="container" style="width:1000px;">  
-    <a href="">Create New User</a>
+
+    <a href="create.php">Create New User</a>
+
     <div class="table-container">
         <table class="table">
             <thead>
                 <tr>
                     <th scope="col">#</th>
+                    <th scope="col">Image</th>
                     <th scope="col">Name</th>
                     <th scope="col">Username</th>
                     <th scope="col">Email</th>
@@ -34,6 +37,11 @@
                 <?php foreach ($users as $user) { ?>
                 <tr>
                     <td><?= $user['id']; ?></td>
+                    <td>
+                        <?php if(isset($user['extension'])): ?>
+                            <img src="<?php echo "users/images/${user['id']}.${user['extension']}" ?>" alt="">
+                        <?php endif; ?>
+                    </td>
                     <td><?= $user['name']; ?></td>
                     <td><?= $user['username']; ?></td>
                     <td><?= $user['email']; ?></td>
@@ -42,7 +50,7 @@
                     <td><?= $user['extension']; ?></td>
                     <td>
                         <a href="view.php?id=<?=$user['id']?>">View</a>
-                        <a href="">Edit</a>
+                        <a href="update.php?id=<?=$user['id']?>">Edit</a>
                         <a href="">Delete</a>
                     </td>
                 </tr>

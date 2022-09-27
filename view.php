@@ -1,10 +1,17 @@
 <?php
-require 'users.php';
+require 'users/users.php';
 
 $userId = $_GET['id'];
+if(!isset($_GET['id'])){
+    echo "Not Found";
+    exit;
+}
 
 $user = getUserById($userId);
-
+if(!$user){
+    echo "Not Found";
+    exit;
+}
 
 ?>
 
