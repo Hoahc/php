@@ -1,0 +1,26 @@
+<?php
+
+require 'users/users.php';
+
+$user = [
+    'id' => '',
+    'name' => '',
+    'username' => '',
+    'email' => '',
+    'phone' => '',
+    'website' => '',
+    'extension' => '',
+];
+
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+    $user = createUser($_POST);
+
+    if(isset($_FILES['picture'])){
+        uploadImage($_FILES['picture'],$user);
+    }
+
+    header("Location: index.php");
+
+}
+
+include "_form.php";

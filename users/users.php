@@ -14,6 +14,18 @@ function getUserById($id){
     return null;
 }
 
+function createUser($data){
+    $users = getUser();
+
+    $data['id'] = rand(1, 1000);
+
+    $users[] = $data;
+
+    putJson($users);
+
+    return $data;
+}
+
 function updateUser($data,$id){
     $updateUser = [];
     $users = getUser();
