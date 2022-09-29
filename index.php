@@ -16,7 +16,7 @@
     
 <div class="container" style="width:1000px;">  
 
-    <a href="create.php">Create New User</a>
+    <a class="btn btn-success" href="create.php">Create New User</a>
 
     <div class="table-container">
         <table class="table">
@@ -39,7 +39,7 @@
                         <td><?= $user['id']; ?></td>
                         <td>
                             <?php if(isset($user['extension'])): ?>
-                                <img src="<?php echo "users/images/${user['id']}.${user['extension']}" ?>" alt="">
+                                <img width="100px" src="<?php echo "users/images/${user['id']}.${user['extension']}" ?>" alt="">
                             <?php endif; ?>
                         </td>
                         <td><?= $user['name']; ?></td>
@@ -49,9 +49,12 @@
                         <td><?= $user['website']; ?></td>
                         <td><?= $user['extension']; ?></td>
                         <td>
-                            <a href="view.php?id=<?=$user['id']?>">View</a>
-                            <a href="update.php?id=<?=$user['id']?>">Edit</a>
-                            <a href="delete.php?id=<?=$user['id']?>">Delete</a>
+                            <a class="btn btn-sm btn-outline-info" href="view.php?id=<?=$user['id']?>">View</a>
+                            <a class="btn btn-secondary" href="update.php?id=<?=$user['id']?>">Edit</a>
+                            <form method="POST" action="delete.php">
+                                <input type="hidden" name="id" value="<?=$user['id'] ?>">
+                                <button class="btn btn-danger">Delete</button>
+                            </form>
                         </td>
                     </tr>
                 <?php endforeach;; ?>

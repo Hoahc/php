@@ -31,13 +31,16 @@ if(!$user){
             View User:  <b><?php echo $user['name']?></b>
         </h3>
     </div> 
-    <div class="card-body">
-        <a href="update.php?id=<?=$user['id']?>">Edit</a>
-        <a href="delete.php?id=<?=$user['id']?>">Delete</a>
-    </div>
-
     <table class="table">
         <tbody>
+            <tr>
+                <th>Image:</th>
+                <td>
+                    <?php if(isset($user['extension'])): ?>
+                        <img width="100px" src="<?php echo "users/images/${user['id']}.${user['extension']}" ?>" alt="">
+                    <?php endif; ?>
+                </td>
+            </tr>
             <tr>
                 <th>Id:</th>
                 <td><?=$user['id'] ?></td>

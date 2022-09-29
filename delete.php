@@ -1,8 +1,8 @@
 <?php
 require __DIR__. '/users/users.php';
 
-$userId = $_GET['id'];
-if(!isset($_GET['id'])){
+$userId = $_POST['id'];
+if(!isset($_POST['id'])){
     echo "Not Found";
     exit;
 }
