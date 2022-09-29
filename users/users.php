@@ -17,7 +17,9 @@ function getUserById($id){
 function createUser($data){
     $users = getUser();
 
-    $data['id'] = rand(1, 1000);
+    $last_item    = end($users);
+    $last_item_id = $last_item['id'];
+    $data['id'] = ++$last_item_id;
 
     $users[] = $data;
 
@@ -40,6 +42,17 @@ function updateUser($data,$id){
     return $updateUser;
 }
 
+function deleteUser($id){
+    $users = getUser();
+    foreach($users as $i => $user){
+        if($user['id'] == $id){
+            array_splice($users,$i,1);
+        }
+    }
+
+    putJson($users);
+}
+
 function uploadImage($file){
     if(!is_dir(__DIR__.'/images')){
         mkdir(__DIR__.'/images');
@@ -55,5 +68,5 @@ function uploadImage($file){
 }
 
 function putJson($users){
-    file_put_contents(__DIR__.'/users.json', json_encode($users, JSON_PRETTY_PRINT));
+    file_put_contents(__DIR__. '/users.json', json_encode($users, JSON_PRETTY_PRINT));
 }

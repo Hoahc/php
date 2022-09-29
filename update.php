@@ -1,5 +1,5 @@
 <?php
-require 'users/users.php';
+require __DIR__. '/users/users.php';
 
 $userId = $_GET['id'];
 if(!isset($_GET['id'])){

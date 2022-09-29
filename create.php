@@ -1,6 +1,6 @@
 <?php
 
-require 'users/users.php';
+require __DIR__. '/users/users.php';
 
 $user = [
     'id' => '',
@@ -9,7 +9,7 @@ $user = [
     'email' => '',
     'phone' => '',
     'website' => '',
-    'extension' => '',
+    'extension' => ''
 ];
 
 if($_SERVER['REQUEST_METHOD'] === 'POST'){

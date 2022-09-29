@@ -22,11 +22,6 @@
         <div class="card-body">
             <form method="POST" enctype="multipart/form-data" action="">
                 <div class="form-group">
-                    <label>ID</label>
-                    <input name="id" value="<?php echo $user['id'] ?>"
-                            class="form-control">
-                </div>
-                <div class="form-group">
                     <label>Name</label>
                     <input name="name" value="<?php echo $user['name'] ?>"
                             class="form-control">
@@ -51,11 +46,7 @@
                     <input name="website" value="<?php echo $user['website'] ?>"
                             class="form-control">
                 </div>
-                <div class="form-group">
-                    <label>Extension</label>
-                    <input name="extension" value="<?php echo $user['extension'] ?>"
-                            class="form-control">
-                </div>
+                
                 <div class="form-group">
                     <label>Image</label>
                     <input name="picture" type="file" class="form-control-file">

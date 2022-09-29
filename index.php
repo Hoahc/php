@@ -1,5 +1,5 @@
 <?php
-    require 'users/users.php';
+    require __DIR__. '/users/users.php';
     $users = getUser();
 ?>
 
@@ -34,27 +34,27 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($users as $user) { ?>
-                <tr>
-                    <td><?= $user['id']; ?></td>
-                    <td>
-                        <?php if(isset($user['extension'])): ?>
-                            <img src="<?php echo "users/images/${user['id']}.${user['extension']}" ?>" alt="">
-                        <?php endif; ?>
-                    </td>
-                    <td><?= $user['name']; ?></td>
-                    <td><?= $user['username']; ?></td>
-                    <td><?= $user['email']; ?></td>
-                    <td><?= $user['phone']; ?></td>
-                    <td><?= $user['website']; ?></td>
-                    <td><?= $user['extension']; ?></td>
-                    <td>
-                        <a href="view.php?id=<?=$user['id']?>">View</a>
-                        <a href="update.php?id=<?=$user['id']?>">Edit</a>
-                        <a href="">Delete</a>
-                    </td>
-                </tr>
-                <?php } ?>
+                <?php foreach ($users as $user) : ?>
+                    <tr>
+                        <td><?= $user['id']; ?></td>
+                        <td>
+                            <?php if(isset($user['extension'])): ?>
+                                <img src="<?php echo "users/images/${user['id']}.${user['extension']}" ?>" alt="">
+                            <?php endif; ?>
+                        </td>
+                        <td><?= $user['name']; ?></td>
+                        <td><?= $user['username']; ?></td>
+                        <td><?= $user['email']; ?></td>
+                        <td><?= $user['phone']; ?></td>
+                        <td><?= $user['website']; ?></td>
+                        <td><?= $user['extension']; ?></td>
+                        <td>
+                            <a href="view.php?id=<?=$user['id']?>">View</a>
+                            <a href="update.php?id=<?=$user['id']?>">Edit</a>
+                            <a href="delete.php?id=<?=$user['id']?>">Delete</a>
+                        </td>
+                    </tr>
+                <?php endforeach;; ?>
             </tbody>
         </table>
     </div>
